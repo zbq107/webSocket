@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zbq.websocket.dao.UserDao">
+
+    <resultMap id="ResultMap" type="com.zbq.websocket.entity.UserEntity">
+        <id column="id"  property="id" />
+        <result column="user_name"  property="userName" />
+        <result column="pass_word"  property="passWord" />
+        <result column="head_photo"  property="headPhoto" />
+        <result column="site"  property="site" />
+        <result column="create_time"  property="createTime" />
+        <result column="update_time"  property="updateTime" />
+        <result column="enable"  property="enable" />
+    </resultMap>
+    <sql id="cols">
+        id,
+        user_name,
+        pass_word,
+        head_photo,
+        site,
+        create_time,
+        update_time,
+        enable
+    </sql>
+
+    <select id="LoginPD" resultType="com.zbq.websocket.entity.UserEntity">
+        select <include refid="cols"/> from user where user_name = #{userName} and pass_word = #{passWord}
+    </select>
+
+    <select id="selectUserName" resultType="com.zbq.websocket.entity.UserEntity">
+        select <include refid="cols"/> from user where user_name = #{userName}
+    </select>
+
+    <select id="getUserInfo" parameterType="com.zbq.websocket.entity.UserEntity"
+            resultType="com.zbq.websocket.entity.UserEntity">
+        select <include refid="cols"/> from user where user_name = #{userName};
+    </select>
+
+    <insert id="saveUser">
+        insert into user (user_name, pass_word, head_photo, create_time, update_time)
+            values (#{userName},#{passWord},#{headPhoto},NOW(),NOW())
+    </insert>
+
+    <!--<select id="findOne" resultType="com.myself.nettychat.dto.UserDTO">
+        select * from user where id = #{id};
+    </select>
+
+    <insert id="save" parameterType="com.myself.nettychat.dto.UserDTO">
+        insert into user values (#{userName},#{passWord});
+    </insert>-->
+
+</mapper>
