@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-
 <mapper namespace="com.zbq.websocket.dao.UserDao">
 
     <resultMap id="ResultMap" type="com.zbq.websocket.entity.UserEntity">
@@ -25,7 +24,7 @@
     </sql>
 
     <select id="LoginPD" resultType="com.zbq.websocket.entity.UserEntity">
-        select <include refid="cols"/> from user where user_name = #{userName} and pass_word = #{passWord}
+        select <include refid="cols"/> from `user` where user_name = #{userName} and pass_word = #{passWord}
     </select>
 
     <select id="selectUserName" resultType="com.zbq.websocket.entity.UserEntity">

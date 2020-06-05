@@ -20,6 +20,6 @@ public class UserEntity {
     //更新时间
     private Date updateTime;
     //是否可用
-    private Integer enable;
+    private String enable;
     
 }

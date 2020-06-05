@@ -8,6 +8,7 @@ import com.zbq.websocket.service.ChattingRecordService;
 import com.zbq.websocket.service.UserService;
 import com.zbq.websocket.util.JsonUtils;
 import com.zbq.websocket.util.SpringUtil;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
@@ -26,6 +27,8 @@ import java.util.concurrent.CopyOnWriteArraySet;
       虽然@Component默认是单例模式的，但springboot还是会为每个websocket连接初始化一个bean，
       所以可以用一个静态set保存起来。
   */
+
+@Slf4j
 @ServerEndpoint(value = "/websocket")
 @Component
 public class MyWebSocket {

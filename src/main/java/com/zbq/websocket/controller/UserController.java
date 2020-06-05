@@ -6,6 +6,7 @@ import com.zbq.websocket.util.CookieUtil;
 import com.zbq.websocket.util.JsonUtils;
 import com.zbq.websocket.util.MD5Util;
 import com.zbq.websocket.util.RedisUtil;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -17,6 +18,7 @@ import com.zbq.websocket.config.Result;
 
 import java.util.UUID;
 
+@Slf4j
 @RestController
 @RequestMapping("web")
 public class UserController {
